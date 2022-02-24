@@ -1,18 +1,18 @@
 apiVersion: apps/v1
 kind: Deployment
 metadata:
-  name: sistema-deployment
+  name: mongodb-deployment
 spec:
   selector:
     matchLabels:
-     app: sistema
+     app: mongodb
   template:
     metadata:
      labels:
-        app: sistema
+        app: mongodb
     spec:
       containers:
-      - name: sistema
+      - name: mongodb
         image: mongo:4.2.8
         ports:
         - containerPort: 27017
