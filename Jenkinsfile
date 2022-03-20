@@ -11,13 +11,11 @@ pipeline {
 
         stage('Build Image') {
             steps {
-                script {
-                    dockerapp = docker.build("teclinux/api-produto:${env.BUILD_ID}",
-                        '-f src/PedeLogo.Catalogo.Api/Dockerfile .')
+                sh 'docker version'
+                sh 'docker build -t teclinux/api-produto -f src/PedeLogo.Catalogo.Api/Dockerfile .')
                 }
-            }
         }
-
+        
         stage('Push Image') {
             steps {
                 script {
