@@ -13,8 +13,7 @@ pipeline {
             steps {
                 sh script: '''
                 #!/bin/bash
-                cd $WORKSPACE/docker-development-youtube-series/python
-                docker build . --network host -t teclinux/python:${BUILD_NUMBER}
+                docker build . --network host -t teclinux/api-produto:${BUILD_NUMBER}
                 '''
             }
         }
