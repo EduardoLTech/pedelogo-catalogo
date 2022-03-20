@@ -11,9 +11,11 @@ pipeline {
 
         stage('Build Image') {
             steps {
-                script {
-                    dockerapp = docker.build("teclinux/api-produto:${env.BUILD_ID}")
-                }
+                sh script: '''
+                #!/bin/bash
+                cd $WORKSPACE/docker-development-youtube-series/python
+                docker build . --network host -t teclinux/python:${BUILD_NUMBER}
+                '''
             }
         }
 
